@@ -11,10 +11,29 @@
     "angular-sanitize": ">=1.2.*",
     "angular-route": ">=1.2.*",
     "font-awesome": ">=4.1.0",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "angular-foundation": "~0.3.1",
+    "foundation": "~5.4.4"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
     "angular-scenario": ">=1.2.*"
+  },
+  "overrides": {
+    "foundation": {
+      "main": [
+         "css/foundation.css",
+         "css/foundation.css.map"
+      ]
+    },
+    "fastclick": {
+      "main": []
+    },
+    "jquery.cookie": {
+      "main": []
+    },
+    "jquery-placeholder": {
+      "main": []
+    }
   }
 }
