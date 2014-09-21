@@ -1,7 +1,8 @@
-<nav class="top-bar" data-topbar role="navigation">
+<div ng-controller="NavbarCtrl">
+  <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h4><a href="+"><img src = "Assets/Images/logo.png"></a></h4>
+      <h4><img src = "assets/images/logo.png"></h4>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
   </ul>
@@ -9,7 +10,8 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"> <a href="http://www.google.com" >Register / Sign In</a></li></a>
+      <li class="active"><a ng-click="openModal()">Register / Sign In</a></li>
     </ul>
   </section>
 </nav>
+</div>
