@@ -11,7 +11,6 @@ angular.module('returnMeHomeApp').service('Userservice', ['$http', function User
       });
     },
     register: function (registerData) {
-      console.log(registerData);
       return $http({
         url: '/api/user/register',
         data: registerData,

@@ -1,24 +1,24 @@
-<div class="row collapse" ng-controller="ModalCtrl">
-
+<div class="row collapse">
+  <divclass="large-6 columns">
     <fieldset>
       <legend>Register</legend>
       <label>Username
-        <input type="text" required autofocus ng-model="username">
+        <input type="text" required autofocus ng-model="registerData.username">
       </label>
       <label>Password
-        <input type="password" required ng-model="password">
+        <input type="password" required ng-model="registerData.password">
       </label>
       <label>Email
-        <input type="email" required ng-model="email">
+        <input type="email" required ng-model="registerData.email">
       </label>
       <label>First Name
-        <input type="text" required ng-model="firstName">
+        <input type="text" required ng-model="registerData.firstName">
       </label>
       <label>Last Name
-        <input type="text" required ng-model="lastName">
+        <input type="text" required ng-model="registerData.lastName">
       </label>
       <label>Phone Number
-        <input type="tel" required ng-model="phone">
+        <input type="tel" required ng-model="registerData.phone">
       </label>
     </fieldset>
     <button type="submit" class="button" ng-click="register()">Submit</button>
