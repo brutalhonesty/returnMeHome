@@ -1,15 +1,7 @@
 'use strict';
 
-angular.module('returnMeHomeApp')
-  .controller('NavbarCtrl', function ($scope, $location) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
-
-    $scope.isCollapsed = true;
-
-    $scope.isActive = function(route) {
-      return route === $location.path();
-    };
-  });
+angular.module('returnMeHomeApp').controller('NavbarCtrl', ['$scope', function ($scope) {
+  $scope.openMenu = function () {
+    
+  };
+}]);
