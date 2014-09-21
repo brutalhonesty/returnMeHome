@@ -2,18 +2,36 @@ h4{
     margin-left: 10px;
 }
 body{
+    background-color: #ECF0EF;
 }
 .top-bar{
     background-color: #ECF0EF;
+    border-bottom: 2px solid #EF493D;
 }
 
-.right:{
+#right: {
     background-color: #EF493D;
+}
+.Footer_outer{
+width: 980px;
+border: 1px solid;
+}
+
+.Footer_inner_left{
+width: 49%;
+Float: left;
+display:inline;
+padding-top:40px;
+}
+
+.Footer_inner_right{
+width: 49%;
+Float: right;
+display:inline;
 }
 .footer {
     text-align: center;
     color: #737373;
-    padding: 30px 0;
-    border-top: 1px solid #E5E5E5;
+    padding: 30px;
     background-color: #ECF0EF;
 }
