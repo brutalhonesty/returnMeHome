@@ -31,6 +31,7 @@ module.exports = function (grunt) {
     yeoman: {
       // configurable paths
       client: require('./bower.json').appPath || 'client',
+      server: 'server',
       dist: 'dist'
     },
     express: {
@@ -412,6 +413,30 @@ module.exports = function (grunt) {
       ]
     },
 
+    todo: {
+      options: {
+        marks: [{
+          name: "TODO",
+          pattern: /TODO/,
+          color: "yellow"
+        }],
+        file: 'grunt-TODO.md'
+      },
+      src: [
+        '<%= yeoman.client %>/*.html',
+        '<%= yeoman.client %>/app/**/*.js',
+        '<%= yeoman.client %>/components/lib/**/*.js',
+        '!<%= yeoman.client %>/assets/**/*',
+        '<%= yeoman.client %>/app/**/*.css',
+        '<%= yeoman.client %>/app/**/*.scss',
+        '<%= yeoman.client %>/app/**/*.html',
+        '<%= yeoman.server %>/**/*.js',
+        '<%= yeoman.docs %>/src/**/*.js',
+        'install.js',
+        'bower.json'
+      ],
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -602,7 +627,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'todo'
   ]);
 
   grunt.registerTask('default', [
