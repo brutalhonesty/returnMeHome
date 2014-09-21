@@ -19,5 +19,8 @@ module.exports = {
     montanaFlynn: {
       endpoint: 'https://montana-flynn-address-parser.p.mashape.com/parsed-address'
     }
+  },
+  imgur: {
+    apiKey: '2ec4d4c630b98a1'
   }
 };

@@ -154,6 +154,21 @@ exports.searchByItem = function(itemName, callback) {
   }
 };
 
+exports.searchByItemId = function(itemId, callback) {
+  switch(this.type) {
+    case COUCHDB:
+    this.items.view('items', 'by_id', {reduce: false, startkey: itemId, endkey: itemId}, function (error, reply) {
+      if(error) {
+        return callback(error);
+      }
+      return callback(null, reply);
+    });
+    break;
+    default:
+    throw new Error('Only couchdb is allowed.');
+  }
+};
+
 exports.searchByUserId = function(userId, callback) {
   switch(this.type) {
     case COUCHDB:
@@ -213,8 +228,34 @@ exports.deleteUserByUsername = function(username, callback) {
       var user = reply.rows[0].value;
       console.log('Deleting user from DB.');
       console.log(user);
-      // TODO Delete process from DB when the user is deleted if there is a process running for that user. Implement deleteProcessByUsername().
       _self.users.destroy(user._id, user._rev, function (error, body) {
+        if(error) {
+          return callback(error);
+        }
+        return callback(null, body);
+      });
+    });
+    break;
+    default:
+    throw new Error('Only couchdb is allowed.');
+  }
+};
+
+exports.deleteItemById = function(itemId, callback) {
+  switch(this.type) {
+    case COUCHDB:
+    var _self = this;
+    _self.items.view('items', 'by_id', {reduce: false, startkey: itemId, endkey: itemId}, function (error, reply) {
+      if(error) {
+        return callback(error);
+      }
+      if(reply.rows.length === 0) {
+        return callback('Item does not exist.');
+      }
+      var item = reply.rows[0].value;
+      console.log('Deleting item from DB.');
+      console.log(item);
+      _self.items.destroy(item._id, item._rev, function (error, body) {
         if(error) {
           return callback(error);
         }

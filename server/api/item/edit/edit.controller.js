@@ -3,7 +3,6 @@
 var validator = require('validator');
 var bcrypt = require('bcrypt');
 var request = require('request');
-var uuid = require('node-uuid');
 var geocoder = require('geocoder');
 var db = require('../../../components/database');
 var settings = require('../../../config/environment');
@@ -28,20 +27,26 @@ function validateAddress (address, callback) {
 
 
 // Edit the item in the DB.
-// TODO This method.
 exports.index = function(req, res) {
   if(!req.session.username) {
     return res.json(401, {message: 'Please sign in.'});
   }
   return res.json(500, {message: 'TODO'});
-  /*var username = req.session.username;
+  var username = req.session.username;
+  var itemId = req.body.id;
   var itemName = req.body.name;
   var descriptions = req.body.descriptions;
   var address = req.body.address;
+  if(validator.isNull(itemId)) {
+    return res.json(400, {message: 'Missing item id.'});
+  }
+  if(!validator.isUUID(itemId, 4)) {
+    return res.json(400, {message: 'Invalid item id.'});
+  }
   if(validator.isNull(itemName)) {
     return res.json(400, {message: 'Missing item name.'});
   }
-  if(validator.isNull(descriptions)) {
+  if(validator.isNull(descriptions) || (typeof(descriptions) === 'object' && descriptions.length === 0)) {
     return res.json(400, {message: 'Missing description(s).'});
   }
   if(validator.isNull(address)) {
@@ -55,10 +60,31 @@ exports.index = function(req, res) {
     db.searchByUser(username, function (error, reply) {
       if(error) {
         console.log(error);
-        return res.json(500, {message: 'Could not add item.'});
+        return res.json(500, {message: 'Could not edit item.'});
       }
       var user = reply.rows[0].value;
       var userId = user._id;
+      db.searchByItemId(itemId, function (error, reply) {
+        if(error) {
+          console.log(error);
+          return res.json(500, {message: 'Could not edit item.'})
+        }
+        var item = reply.rows[0].value;
+        if(item.name !== itemName) {
+          item.name = itemName;
+        }
+        item.descriptions = descriptions;
+        if(item.address.number !== addressResp.number && item.address.street !== addressResp.street && item.address.city !== addressResp.city && item.address.zip !== addressResp.zip) {
+          item.address = addressResp;
+        }
+        db.insert(items, item._id, item, function (error) {
+          if(error) {
+            console.log(error);
+            return res.json(500, {message: 'Could not edit item.'});
+          }
+          return res.json({message: 'Item edited.'});
+        });
+      });
     });
-  });*/
+  });
 };
