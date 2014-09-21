@@ -14,7 +14,6 @@ module.exports = function(app) {
   app.use('/api/user/login', require('./api/user/login'));
   app.use('/api/user/changePassword', require('./api/user/changePassword'));
   app.use('/api/user/changeProfile', require('./api/user/changeProfile'));
-  app.use('/api/user/autocomplete', require('./api/user/autocomplete'));
 
   // Items
   app.use('/api/item/add', require('./api/item/add'));
