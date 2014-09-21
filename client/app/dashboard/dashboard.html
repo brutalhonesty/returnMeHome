@@ -1,2 +1,50 @@
-<b>DASHBOARD HERE</b>
-<input type="text" ng-autocomplete ng-model="autocomplete" options="options" details="details">
+<div class="row collapse">
+  <form class="large-12 columns" ng-submit="submitLost()">
+    <fieldset>
+      <legend id="lostLegend"><h2>Lost</h2></legend>
+        <label>Category
+        <select ng-options="category for category in categories" ng-model="lostCategory"></select>
+        </label>
+        <label>Item
+          <!--<input type="text" autofocus required placeholder="Product Name" ng-model="lostItemName" ng-change="lookupLostProduct()" typeahead="lost for lost in lostList | filter: $viewValue" typeahead-loading="loadingLostProducts">
+          <i ng-show="loadingLostProducts" class="glyphicon glyphicon-refresh"></i>-->
+          <input type="text" autofocus required placeholder="Product Name" ng-model="lostItemName">
+        </label>
+        <label>Location
+          <input type="text" ng-autocomplete ng-model="lostLocation" options="options" details="details">
+        </label>
+        <label>Date/Time
+            <input type="date" ng-model="lostDate" placeholder="Approximate date the item was lost.">
+            <input type="time" ng-model="lostTime" placeholder="Approximate time the item was lost.">
+        </label>
+        <textarea cols="3" rows="3" placeholder="Specific Details" ng-model="lostDetails"></textarea>
+        <button type="submit">Submit</button>
+        <alert ng-show="lostError" type="danger">{{lostError}}</alert>
+        <alert ng-show="lostMessage" type="success">{{lostMessage}}</alert>
+    </fieldset>
+  </form>
+  <form class="large-12 columns">
+    <fieldset>
+      <legend id="lostLegend"><h2>Found</h2></legend>
+      <label>Category
+        <select ng-options="category for category in categories" ng-model="foundCategory"></select>
+        </label>
+      <label>Item
+        <!--<input type="text" autofocus required placeholder="Product Name" ng-model="foundItemName" ng-change="lookupFoundProduct()" typeahead="found for found in foundList | filter: $viewValue" typeahead-loading="loadingFoundProducts">
+          <i ng-show="loadingFoundProducts" class="glyphicon glyphicon-refresh"></i>-->
+          <input type="text" autofocus required placeholder="Product Name" ng-model="foundItemName">
+      </label>
+      <label>Location
+        <input type="text" ng-autocomplete ng-model="foundLocation" options="options" details="details">
+      </label>
+      <label>Date/Time
+          <input type="date" ng-model="foundDate" placeholder="Approximate date the item was lost.">
+          <input type="time" ng-model="foundTime" placeholder="Approximate time the item was lost.">
+      </label>
+      <textarea cols="3" rows="3" placeholder="Specific Details" ng-model="foundDetails"></textarea>
+      <button type="submit" ng-click="submitFound()">Submit</button>
+      <alert ng-show="foundError" type="danger">{{foundError}}</alert>
+      <alert ng-show="foundMessage" type="success">{{foundMessage}}</alert>
+    </fieldset>
+  </form>
+</div>

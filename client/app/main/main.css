@@ -46,3 +46,7 @@ display:inline;
     float:right;
     width:48%;
 }
+
+fieldset legend#lostLegend {
+    background: transparent;
+}

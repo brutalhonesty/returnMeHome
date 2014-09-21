@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
+    "aws2": "^0.1.5",
     "bcrypt": "^0.8.0",
     "body-parser": "~1.5.0",
     "colors": "^0.6.2",
@@ -23,7 +24,8 @@
     "node-uuid": "^1.4.1",
     "request": "^2.44.0",
     "serve-favicon": "~2.0.1",
-    "validator": "^3.18.1"
+    "validator": "^3.18.1",
+    "xml2json": "^0.5.1"
   },
   "devDependencies": {
     "connect-livereload": "~0.4.0",

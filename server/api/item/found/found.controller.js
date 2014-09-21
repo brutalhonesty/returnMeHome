@@ -46,7 +46,7 @@ exports.index = function(req, res) {
       descriptions: descriptions,
       address: address,
       obtained: false,
-      lost: true,
+      lost: false,
       owner: '',
       founder: user._id
     };

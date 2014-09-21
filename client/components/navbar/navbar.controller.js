@@ -11,6 +11,7 @@ angular.module('returnMeHomeApp').controller('NavbarCtrl', ['$scope', '$modal', 
 
 angular.module('returnMeHomeApp').controller('ModalCtrl', ['$scope', '$modalInstance', 'Userservice', 'geolocation', '$location', '$window', function ($scope, $modalInstance, Userservice, geolocation, $location, $window) {
   $scope.registerData = {};
+  $scope.loginData = {};
   geolocation.getLocation().then(function (data) {
     $scope.registerData.latitude = data.coords.latitude;
     $scope.registerData.longitude = data.coords.longitude;
@@ -26,8 +27,8 @@ angular.module('returnMeHomeApp').controller('ModalCtrl', ['$scope', '$modalInst
   };
   $scope.login = function () {
     var loginData = {
-      username: $scope.username,
-      password: $scope.password
+      username: $scope.loginData.username,
+      password: $scope.loginData.password
     };
     Userservice.login(loginData).success(function (data) {
       $modalInstance.dismiss('cancel');

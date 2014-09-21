@@ -22,5 +22,9 @@ module.exports = {
   },
   imgur: {
     apiKey: '2ec4d4c630b98a1'
+  },
+  aws: {
+    access_key: 'AKIAJUOUDP6CFWEFZGNQ',
+    secret_access_key: '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'
   }
 };

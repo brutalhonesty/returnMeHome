@@ -70,13 +70,30 @@
         <script src="assets/js/ngAutocomplete/ngAutocomplete.js"></script>
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/ItemService/ItemService.service.js"></script>
           <script src="app/Userservice/Userservice.service.js"></script>
           <script src="app/dashboard/dashboard.controller.js"></script>
           <script src="app/dashboard/dashboard.js"></script>
+          <script src="app/date/date.filter.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <!-- endinjector -->
+          <script type="text/javascript">
+            if ( window.addEventListener ) {
+              var state = 0, konami = [38,38,40,40,37,39,37,39,66,65];
+              window.addEventListener("keydown", function(e) {
+                if ( e.keyCode == konami[state] ) {
+                  state++;
+                }
+                else {
+                  state = 0;
+                }
+                if (state == 10)
+                  window.location = "http://www.youtube.com/watch?v=dQw4w9WgXcQ";  //you can write your own code here
+                }, true);
+              }
+            </script>
         <!-- endbuild -->
 </body>
 </html>
