@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('returnMeHomeApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mm.foundation']).config(function ($routeProvider, $locationProvider) {
+angular.module('returnMeHomeApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'mm.foundation', 'geolocation']).config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .otherwise({
       redirectTo: '/'

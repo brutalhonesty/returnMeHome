@@ -1,4 +1,5 @@
-<nav class="top-bar" data-topbar role="navigation">
+<div ng-controller="NavbarCtrl">
+  <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
       <h4><img src = "assets/images/logo.png"></h4>
@@ -10,7 +11,8 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <li class="active"><a href="#">Register / Sign In</a></li>
+      <li class="active"><a ng-click="openModal()">Register / Sign In</a></li>
     </ul>
   </section>
 </nav>
+</div>
